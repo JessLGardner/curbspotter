@@ -11,7 +11,7 @@ const PostCardStyle = styled.div`
 `
 
 const PostCard = (props) => {
-  const id = this.props.match.params.id;
+  const id = props.neighborhoodId;
   const post = props.post;
 
   return (

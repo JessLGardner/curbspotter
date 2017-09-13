@@ -4,7 +4,10 @@ class Api::PostsController < ApplicationController
     @neighborhood = Neighborhood.find params[:neighborhood_id]
     @posts = @neighborhood.posts.all
   
-    render json: @posts  
+    render json: {
+      neighborhood: @neighborhood,
+      posts: @posts
+    }  
   end
 
   def show

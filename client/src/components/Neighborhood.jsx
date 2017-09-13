@@ -25,21 +25,23 @@ class Neighborhood extends Component {
   }
 
   _fetchNeighborhoodAndPosts = async () => {
+    console.log("Fetching info!")
     const id = this.props.match.params.id;
     const res = await axios.get(`/api/neighborhoods/${id}/posts`)
+    console.log(res);
     this.setState({
       neighborhood: res.data.neighborhood,
       posts: res.data.posts
     })
-    console.log(this.state)
+    console.log(this.props)
   }
 
   render() {
     return (
       <NeighborhoodStyle>
-        <h1>{this.state.name}</h1>
-        <h4>{this.state.description}</h4>
-        {/* <PostList/> */}
+        <h1>{this.state.neighborhood.name}</h1>
+        <h4>{this.state.neighborhood.description}</h4>
+        <PostList posts={this.state.posts} neighborhoodId={this.props.match.params.id}/>
       </NeighborhoodStyle>
     );
   }

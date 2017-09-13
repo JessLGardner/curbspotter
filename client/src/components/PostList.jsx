@@ -9,35 +9,39 @@ const BodyStyle = styled.div`
 
 class PostList extends Component {
 
-  constructor(){
-    super();
-    this.state = {
-      posts: []
-    }
-  }
+  // constructor(){
+  //   super();
+  //   this.state = {
+  //     posts: []
+  //   }
+  // }
 
-  componentWillMount(){
-    this._fetchPosts();
-  }
+  // componentWillMount(){
+  //   this._fetchPosts();
+  // }
 
-  _fetchPosts = async () => {
-    const id = this.props.match.params.id;
-    const res = await axios.get(`/api/neighborhoods/${id}/posts`);
-    const posts = res.data;
-    this.setState({posts});
-  }
+  // _fetchPosts = async () => {
+  //   const id = this.props.match.params.id;
+  //   const res = await axios.get(`/api/neighborhoods/${id}/posts`);
+  //   const posts = res.data;
+  //   this.setState({posts});
+  // }
 
   render() {
     return (
       <BodyStyle>
         <h1>List of Posts</h1>
-        {this.state.posts.map((post) => (
-          <PostCard key={post.id} post={post}/>)
+        {this.props.posts.map((post) => (
+          <PostCard key={post.id} post={post} neighborhoodId={this.props.neighborhoodId}/>)
         )}
       </BodyStyle>
     );
   }
 }  
+
+PostList.defaultProps = {
+  posts: []
+}
 
 
 export default PostList;
