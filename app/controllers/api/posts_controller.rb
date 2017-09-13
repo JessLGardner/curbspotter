@@ -53,7 +53,7 @@ class Api::PostsController < ApplicationController
     @post.destroy
 
     render json: {
-      message: 'creature successfully destroyed'
+      message: 'post successfully destroyed'
     }
   end
 
