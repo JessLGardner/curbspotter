@@ -34,7 +34,7 @@ class Post extends Component {
     })
     // console.log(res.data)
   }
-  
+  g
   _deletePost = async () => {
     const neighborhoodId = this.props.match.params.neighborhoodId;
     const id = this.props.match.params.id;

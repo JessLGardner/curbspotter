@@ -43,7 +43,7 @@ class Neighborhood extends Component {
         <h1>{this.state.neighborhood.name}</h1>
         <h4>{this.state.neighborhood.description}</h4>
 
-        <Link to={`/neighborhoods/${id}/posts/new`}>
+        <Link to={`/neighborhoods/${id}/post/new`}>
           <p>make a new post</p>
         </Link>
 
