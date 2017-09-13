@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios';
 import styled from 'styled-components';
 
@@ -10,12 +10,11 @@ const PostStyle = styled.div`
   }
 `
 
-
-
 class Post extends Component {
   constructor(){
     super();
     this.state = {
+      redirect: false,
       neighborhood: {},
       post: []
     }
@@ -33,9 +32,17 @@ class Post extends Component {
       neighborhood: res.data.neighborhood,
       post: res.data.post
     })
-    console.log(res.data)
-
+    // console.log(res.data)
   }
+  
+  _deletePost = async () => {
+    const neighborhoodId = this.props.match.params.neighborhoodId;
+    const id = this.props.match.params.id;
+    const res = await axios.delete(`/api/neighborhoods/${neighborhoodId}/posts/${id}`)
+    const redirect = !this.state.redirect
+    this.setState({ redirect })
+  }
+
   render(){
     const neighborhoodId = this.props.match.params.neighborhoodId;
     const id = this.props.match.params.id;
@@ -55,7 +62,9 @@ class Post extends Component {
           edit
         </Link>
 
-         / delete
+        <button onClick={this._deletePost}>delete</button>
+         {this.state.redirect && (<Redirect to={`/neighborhoods/${neighborhoodId}/posts`}/>)}
+
       </PostStyle>
     );
   }
