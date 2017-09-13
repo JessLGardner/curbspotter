@@ -35,7 +35,7 @@ class NeighborhoodList extends Component {
       <BodyStyle>
         <h1>List of Hoods</h1>
         {this.state.neighborhoods.map((neighborhood) => (
-          <NeighborhoodCard key={neighborhood.id} neighborhood={neighborhood}/>)
+          <NeighborhoodCard {...neighborhood} key={neighborhood.id} neighborhood={neighborhood}/>)
         )}
       </BodyStyle>
     );
