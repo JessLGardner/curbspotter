@@ -1,4 +1,12 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import axios from 'axios';
+import styled from 'styled-components';
+
+const EditPostStyle = styled.div`
+  margin: 20px;
+`
+
 
 class EditPost extends Component {
   constructor(){
@@ -35,6 +43,9 @@ class EditPost extends Component {
     const post = this.state.post
     const neighborhoodId = this.props.match.params.neighborhoodId;
     const id = this.props.match.params.id;
+
+    const res = await axios.put(`/api/neighborhoods/${neighborhoodId}/posts/${id}`, post)
+    this.setState({redirect: true})
     }
 
 
@@ -47,8 +58,11 @@ class EditPost extends Component {
   }
 
   render() {
+    const neighborhoodId = this.props.match.params.neighborhoodId;
+    const id = this.props.match.params.id;
+  
     return (
-      <div>
+      <EditPostStyle>
         <h1>Edit Post</h1>
         <form onSubmit={this._editPost}>
           <div>
@@ -59,9 +73,25 @@ class EditPost extends Component {
             <label htmlFor="content">Content: </label>
             <input onChange={this._handleChange} type="text" name="content" value={this.state.post.content} />
           </div>
+          <div>
+            <label htmlFor="title">Category: </label>
+            <select onChange={this._handleChange} type="text" name="category" value={this.state.post.category}> 
+                <option>furniture</option>
+                <option>kids</option>
+                <option>misc</option>
+                <option>pets</option>
+                <option>construction</option>
+                <option>fitness</option>
+            </select>
+          </div>
+          <div>
+            <label htmlFor="content">Location: </label>
+            <input onChange={this._handleChange} type="text" name="location" value={this.state.post.location} />
+          </div>
           <button>Submit</button>
         </form>
-      </div>
+        {this.state.redirect && (<Redirect to={`/api/neighborhoods/${neighborhoodId}/posts/${id}`}/>)}
+      </EditPostStyle>
     );
   }
 }

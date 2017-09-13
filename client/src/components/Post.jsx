@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
+import styled from 'styled-components';
+
+const PostStyle = styled.div`
+  margin: 20px;
+`
+
+
 
 class Post extends Component {
   constructor(){
@@ -31,18 +38,22 @@ class Post extends Component {
     const id = this.props.match.params.id;
 
     return (
-      <div>
-        <h2>{this.state.neighborhood.name} / {this.state.post.title}</h2>
+      <PostStyle>
+        <h2><Link to={`/neighborhoods/${neighborhoodId}/posts`}>
+        {this.state.neighborhood.name}
+        </Link></h2>
+        <h2>{this.state.post.title}</h2>
         <h4>category: {this.state.post.category}</h4>
         <img src={this.state.post.image_url} alt=""/>
-        <p>{this.state.post.content}</p>
+        <p>{this.state.post.content}</p><br/>
+        <p>{this.state.post.location}</p>
 
         <Link to={`/neighborhoods/${neighborhoodId}/posts/${id}/edit`}>
           edit
         </Link>
 
          / delete
-      </div>
+      </PostStyle>
     );
   }
 }
