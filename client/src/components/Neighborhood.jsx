@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 import PostList from './PostList';
 
@@ -33,7 +33,6 @@ class Neighborhood extends Component {
       neighborhood: res.data.neighborhood,
       posts: res.data.posts
     })
-    console.log(this.props)
   }
 
   render() {

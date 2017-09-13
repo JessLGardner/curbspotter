@@ -5,29 +5,33 @@ class Post extends Component {
   constructor(){
     super();
     this.state = {
-      post: {}
+      neighborhood: {},
+      post: []
     }
   }
 
   componentWillMount(){
-    this._fetchPosts();
+    this._fetchPost();
   }
 
-  _fetchPosts = async () => {
-    const id = this.props.match.params.neighborhood.id;
-    const post = this.props.match.params.id
-    const res = await axios.get(`/api/neighborhoods/${id}/posts/${post.id}`)
+  _fetchPost = async () => {
+    const neighborhoodId = this.props.match.params.neighborhoodId;
+    const id = this.props.match.params.id;
+    const res = await axios.get(`/api/neighborhoods/${neighborhoodId}/posts/${id}`)
     this.setState({
+      neighborhood: res.data.neighborhood,
       post: res.data.post
     })
-    console.log(this.state)
+    console.log(res.data)
 
   }
-
-  render() {
+  render(){
     return (
       <div>
-        fuck everything react
+        <h2>{this.state.neighborhood.name} / {this.state.post.title}</h2>
+        <h4>category: {this.state.post.category}</h4>
+        <img src={this.state.post.image_url} alt=""/>
+        <p>{this.state.post.content}</p>
       </div>
     );
   }

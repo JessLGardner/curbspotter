@@ -13,7 +13,7 @@ const NeighborhoodCard = (props) => {
   const neighborhood = props.neighborhood;
   return (
     <NeighborhoodCardStyle>
-      <Link to={{pathname:`/neighborhoods/${neighborhood.id}/posts`, state:{...neighborhood}}}>
+      <Link to={`/neighborhoods/${neighborhood.id}/posts`}>
         <h3>{neighborhood.name}</h3>
       </Link>
     </NeighborhoodCardStyle>

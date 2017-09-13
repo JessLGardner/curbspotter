@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import styled from 'styled-components';
 import PostCard from './PostCard';
 
@@ -30,7 +30,6 @@ class PostList extends Component {
   render() {
     return (
       <BodyStyle>
-        <h1>List of Posts</h1>
         {this.props.posts.map((post) => (
           <PostCard key={post.id} post={post} neighborhoodId={this.props.neighborhoodId}/>)
         )}

@@ -14,7 +14,10 @@ class Api::PostsController < ApplicationController
     @neighborhood = Neighborhood.find params[:neighborhood_id]
     @post = @neighborhood.posts.find params[:id]
     
-    render json: @post 
+    render json: {
+      neighborhood: @neighborhood,
+      post: @post
+    }
   end
 
   def create
