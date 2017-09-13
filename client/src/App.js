@@ -16,6 +16,8 @@ class App extends Component {
           <Route exact path="/neighborhoods" component={NeighborhoodList}/>
           <Route exact path="/neighborhoods/:id/posts" component={Neighborhood}/>
           <Route exact path="/neighborhoods/:neighborhoodId/posts/:id" component={Post}/>
+          <Route exact path="/neighborhoods/:neighborhoodId/posts/:id/edit" component={Post}/>
+
         </div>
       </Router>
     );

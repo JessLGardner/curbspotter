@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import axios from 'axios';
 
 class Post extends Component {
@@ -26,12 +27,21 @@ class Post extends Component {
 
   }
   render(){
+    const neighborhoodId = this.props.match.params.neighborhoodId;
+    const id = this.props.match.params.id;
+
     return (
       <div>
         <h2>{this.state.neighborhood.name} / {this.state.post.title}</h2>
         <h4>category: {this.state.post.category}</h4>
         <img src={this.state.post.image_url} alt=""/>
         <p>{this.state.post.content}</p>
+
+        <Link to={`/neighborhoods/${neighborhoodId}/posts/${id}/edit`}>
+          edit
+        </Link>
+
+         / delete
       </div>
     );
   }
