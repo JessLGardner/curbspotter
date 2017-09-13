@@ -3,12 +3,11 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 
-const EditPostStyle = styled.div`
+const NewPostStyle = styled.div`
   margin: 20px;
 `
 
-
-class EditPost extends Component {
+class NewPost extends Component {
   constructor(){
     super();
     this.state = {
@@ -23,27 +22,12 @@ class EditPost extends Component {
     }
   }
 
-  componentWillMount(){
-    const postId = this.props.match.params.id
-    this._fetchPost()
-  }
-
-  _fetchPost = async () => {
-  const neighborhoodId = this.props.match.params.neighborhoodId;
-  const id = this.props.match.params.id;
-  const res = await axios.get(`/api/neighborhoods/${neighborhoodId}/posts/${id}`)
-  this.setState({
-    post: res.data.post
-  })
-  console.log(res.data)
-  }  
-
   _editPost = async (e) => {
     e.preventDefault();
     const post = this.state.post
     const neighborhoodId = this.props.match.params.neighborhoodId;
-    const id = this.props.match.params.id;
-    const res = await axios.put(`/api/neighborhoods/${neighborhoodId}/posts/${id}`, post)
+    // const id = this.props.match.params.id;
+    await axios.post(`/api/neighborhoods/${neighborhoodId}/posts`, post)
     
     const redirect = !this.state.redirect
     this.setState({redirect: true})
@@ -58,13 +42,13 @@ class EditPost extends Component {
     })
   }
 
+
   render() {
     const neighborhoodId = this.props.match.params.neighborhoodId;
-    const id = this.props.match.params.id;
   
     return (
-      <EditPostStyle>
-        <h1>Edit Post</h1>
+      <NewPostStyle>
+        <h1>New Post</h1>
         <form onSubmit={this._editPost}>
           <div>
             <label htmlFor="title">Title: </label>
@@ -95,10 +79,11 @@ class EditPost extends Component {
           </div>
           <button>Submit</button>
         </form>
-        {this.state.redirect && (<Redirect to={`/neighborhoods/${neighborhoodId}/posts/${id}`}/>)}
-      </EditPostStyle>
+        {this.state.redirect && (<Redirect to={`/neighborhoods/${neighborhoodId}/posts`}/>)}
+      </NewPostStyle>
     );
   }
+
 }
 
-export default EditPost;
+export default NewPost;

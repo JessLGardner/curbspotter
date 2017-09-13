@@ -11,6 +11,9 @@ const PostCardStyle = styled.div`
   img {
     max-width: 98%;
   }
+  a {
+    text-decoration: none;
+  }
 `
 
 const PostCard = (props) => {

@@ -5,6 +5,9 @@ import styled from 'styled-components';
 
 const PostStyle = styled.div`
   margin: 20px;
+  a {
+    text-decoration: none;
+  }
 `
 
 
