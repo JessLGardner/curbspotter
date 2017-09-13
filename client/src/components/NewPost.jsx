@@ -26,7 +26,6 @@ class NewPost extends Component {
     e.preventDefault();
     const post = this.state.post
     const neighborhoodId = this.props.match.params.neighborhoodId;
-    // const id = this.props.match.params.id;
     await axios.post(`/api/neighborhoods/${neighborhoodId}/posts`, post)
     
     const redirect = !this.state.redirect
