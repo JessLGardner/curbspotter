@@ -60,12 +60,13 @@ class NewPost extends Component {
           <div>
             <label htmlFor="title">Category: </label>
             <select onChange={this._handleChange} type="text" name="category" value={this.state.post.category}> 
+                <option></option>
+                <option>construction</option>
+                <option>fitness</option>
                 <option>furniture</option>
                 <option>kids</option>
                 <option>misc</option>
                 <option>pets</option>
-                <option>construction</option>
-                <option>fitness</option>
             </select>
           </div>
           <div>
