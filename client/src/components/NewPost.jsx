@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import Dropzone from 'react-dropzone'
 import axios from 'axios';
 import styled from 'styled-components';
 
@@ -22,6 +23,10 @@ class NewPost extends Component {
     }
   }
 
+  componentWillMount(){
+    console.log(process.env)
+  }
+
   _makePost = async (e) => {
     e.preventDefault();
     const post = this.state.post
@@ -41,6 +46,49 @@ class NewPost extends Component {
     })
   }
 
+  handleDrop = files => {
+    // Push all the axios request promise into a single array
+    const apiKey = process.env.REACT_APP_UPLOAD_API_KEY
+    const uploadPreset = process.env.REACT_APP_UPLOAD_PRESET
+    const uploaders = files.map(file => {
+      // Initial FormData
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("tags", `codeinfuse, medium, gist`);
+      formData.append("upload_preset", uploadPreset); // Replace the preset name with your own
+      formData.append("api_key", apiKey); // Replace API key with your own Cloudinary key
+      formData.append("timestamp", (Date.now() / 1000) | 0);
+      
+      // Make an AJAX upload request using Axios (replace Cloudinary URL below with your own)
+      return axios.post("https://api.cloudinary.com/v1_1/dwtcophv6/image/upload", formData, {
+        transformRequest: [function (data, headers) {
+          // Do whatever you want to transform the data
+          // console.log(headers)
+          delete headers['access-token']
+          delete headers['uid']
+          delete headers['client']
+          delete headers['expiry']
+          delete headers['token-type']
+          delete headers.common
+          return data;
+        }],
+        headers: { "X-Requested-With": "XMLHttpRequest" },
+      }).then(response => {
+        const data = response.data;
+        const fileURL = data.secure_url // You should store this URL for future references in your app
+        console.log(data);
+        let post = {...this.state.post}
+        post.image_url = fileURL
+        this.setState({ post })
+      })
+    });
+  
+    // Once all the files are uploaded 
+    axios.all(uploaders).then(() => {
+      // ... perform after upload is successful operation
+    });
+  }
+  
 
   render() {
     const neighborhoodId = this.props.match.params.neighborhoodId;
@@ -73,6 +121,14 @@ class NewPost extends Component {
             <label htmlFor="content">Image: </label>
             <input onChange={this._handleChange} type="text" name="image_url" value={this.state.post.image_url} />
           </div>
+
+          <Dropzone 
+            onDrop={this.handleDrop} 
+            multiple 
+            accept="image/*" 
+          >
+            <p>Drop your files or click here to upload</p>
+          </Dropzone>
           <div>
             <label htmlFor="content">Location: </label>
             <input onChange={this._handleChange} type="text" name="location" value={this.state.post.location} />
