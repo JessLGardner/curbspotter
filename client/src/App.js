@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import GlobalNav from './components/GlobalNav';
+import Splash from './components/Splash';
 import NeighborhoodList from './components/NeighborhoodList';
 import Neighborhood from './components/Neighborhood';
 import Post from './components/Post';
@@ -22,6 +23,7 @@ class App extends Component {
       <Router>
         <div>
           <GlobalNav />
+          <Route exact path="/" component={Splash}/>
           <Route exact path="/neighborhoods" component={NeighborhoodList}/>
           <Route exact path="/signUp" component={SignUp}/>
           <Route exact path="/signIn" component={SignIn}/>
