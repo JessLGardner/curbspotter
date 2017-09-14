@@ -10,6 +10,7 @@ import EditPost from './components/EditPost';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import {setAxiosDefaults} from './util';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
 class App extends Component {
