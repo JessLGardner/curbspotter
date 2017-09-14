@@ -62,8 +62,10 @@ class Api::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :content, :image_url, :category, :location, :neighborhood_id, :created_at)
-  end
+    @post = params.require(:post).permit(:title, :content, :image_url, :category, :location, :neighborhood_id, :user_id, :created_at)
+    user_id = {user_id: current_user.id}
+    @post.merge(user_id)
+end
   
 end
 
