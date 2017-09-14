@@ -15,10 +15,11 @@ class Api::PostsController < ApplicationController
   def show
     @neighborhood = Neighborhood.find params[:neighborhood_id]
     @post = @neighborhood.posts.find params[:id]
-    
+    @user = current_user
     render json: {
       neighborhood: @neighborhood,
-      post: @post
+      post: @post,
+      user: @user
     }
   end
 

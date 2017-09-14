@@ -16,7 +16,8 @@ class Post extends Component {
     this.state = {
       redirect: false,
       neighborhood: {},
-      post: []
+      post: [],
+      user: {}
     }
   }
 
@@ -30,7 +31,8 @@ class Post extends Component {
     const res = await axios.get(`/api/neighborhoods/${neighborhoodId}/posts/${id}`)
     this.setState({
       neighborhood: res.data.neighborhood,
-      post: res.data.post
+      post: res.data.post,
+      user: res.data.user
     })
     // console.log(res.data)
   }
@@ -46,25 +48,29 @@ class Post extends Component {
   render(){
     const neighborhoodId = this.props.match.params.neighborhoodId;
     const id = this.props.match.params.id;
+    // const user = current_user
 
     return (
       <PostStyle>
         <h2><Link to={`/neighborhoods/${neighborhoodId}/posts`}>
-        {this.state.neighborhood.name}
+          {this.state.neighborhood.name}
         </Link></h2>
         <h2>{this.state.post.title}</h2>
         <h4>category: {this.state.post.category}</h4>
         <img src={this.state.post.image_url} alt=""/>
         <p>{this.state.post.content}</p><br/>
         <p>{this.state.post.location}</p>
+        <p>{this.state.post.created_at}</p>
 
-        <Link to={`/neighborhoods/${neighborhoodId}/posts/${id}/edit`}>
-          edit
-        </Link>
 
-        <button onClick={this._deletePost}>delete</button>
-         {this.state.redirect && (<Redirect to={`/neighborhoods/${neighborhoodId}/posts`}/>)}
-
+        {this.state.post.user_id == this.state.user.id ? 
+        <div>
+          <Link to={`/neighborhoods/${neighborhoodId}/posts/${id}/edit`}>edit</Link>
+          <button onClick={this._deletePost}>delete</button>
+          {this.state.redirect && (<Redirect to={`/neighborhoods/${neighborhoodId}/posts`}/>)}
+        </div>
+        :
+        ''}
       </PostStyle>
     );
   }

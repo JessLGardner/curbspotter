@@ -22,7 +22,7 @@ class NewPost extends Component {
     }
   }
 
-  _editPost = async (e) => {
+  _makePost = async (e) => {
     e.preventDefault();
     const post = this.state.post
     const neighborhoodId = this.props.match.params.neighborhoodId;
@@ -48,7 +48,7 @@ class NewPost extends Component {
     return (
       <NewPostStyle>
         <h1>New Post</h1>
-        <form onSubmit={this._editPost}>
+        <form onSubmit={this._makePost}>
           <div>
             <label htmlFor="title">Title: </label>
             <input onChange={this._handleChange} type="text" name="title" value={this.state.post.title} />
