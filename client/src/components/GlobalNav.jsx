@@ -59,7 +59,7 @@ class GlobalNav extends Component {
             <Link to="/neighborhoods"><h2>curbspottr</h2></Link>
           </div>
           <div>
-            <span>signed in as: {this.state.user.email} </span> |
+            <span>{this.state.user.nickname} </span> |
             <Link to='#' onClick={this._logOut}> log out</Link>
           </div>
         </Nav>

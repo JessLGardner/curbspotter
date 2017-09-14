@@ -7,6 +7,8 @@ class SignUp extends Component {
   constructor(){
     super();
     this.state = {
+      nickname: '',
+      name: '',
       email: '',
       password: '',
       password_confirmation: '',
@@ -17,6 +19,8 @@ class SignUp extends Component {
   _signUp = async (e) => {
     e.preventDefault();
     const payload = {
+      nickname: this.state.nickname,
+      name: this.state.name,
       email: this.state.email,
       password: this.state.password,
       password_confirmation: this.state.password_confirmation
@@ -39,6 +43,14 @@ class SignUp extends Component {
     return (
       <div>
         <form onSubmit={this._signUp}>
+          <div>
+            <label htmlFor="nickname">Username: </label>
+            <input onChange={this._handleChange} type="text" name="nickname" value={this.state.nickname} />
+          </div>
+          <div>
+            <label htmlFor="name">Name: </label>
+            <input onChange={this._handleChange} type="text" name="name" value={this.state.name} />
+          </div>
           <div>
             <label htmlFor="email">E-mail: </label>
             <input onChange={this._handleChange} type="text" name="email" value={this.state.email} />

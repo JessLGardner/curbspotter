@@ -1,5 +1,5 @@
-class ApplicationController < ActionController::API
-  include DeviseTokenAuth::Concerns::SetUserByToken
+# class ApplicationController < ActionController::API
+#   include DeviseTokenAuth::Concerns::SetUserByToken
 
 
   # protected
@@ -11,4 +11,17 @@ class ApplicationController < ActionController::API
   #   end
   # end
 
+# end
+
+
+class ApplicationController < ActionController::API
+  include DeviseTokenAuth::Concerns::SetUserByToken
+
+ before_action :configure_permitted_parameters, if: :devise_controller?
+  
+ protected
+  
+   def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :image, :name, :gender, :body_type, :linked_in, :age, :height, :bio, :nickname])
+    end
 end

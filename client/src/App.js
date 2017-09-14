@@ -9,8 +9,10 @@ import NewPost from './components/NewPost';
 import EditPost from './components/EditPost';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
+import UserProfile from './components/UserProfile';
 import {setAxiosDefaults} from './util';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 
 
 class App extends Component {
@@ -25,6 +27,7 @@ class App extends Component {
         <div>
           <GlobalNav />
           <Route exact path="/" component={Splash}/>
+          <Route exact path="/users/:id" component={UserProfile}/>
           <Route exact path="/neighborhoods" component={NeighborhoodList}/>
           <Route exact path="/signUp" component={SignUp}/>
           <Route exact path="/signIn" component={SignIn}/>
