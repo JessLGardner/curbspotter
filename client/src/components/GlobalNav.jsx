@@ -52,6 +52,8 @@ class GlobalNav extends Component {
   };
 
   render() {
+    const id = this.state.user.id
+
     if (this.state.loggedIn) {
       return (
         <Nav>
@@ -59,8 +61,8 @@ class GlobalNav extends Component {
             <Link to="/neighborhoods"><h2>curbspottr</h2></Link>
           </div>
           <div>
-            <span>{this.state.user.nickname} </span> |
-            <Link to='#' onClick={this._logOut}> log out</Link>
+            <Link to={`/users/${id}`}>{this.state.user.nickname} </Link> |
+            <Link to='/' onClick={this._logOut}> log out</Link>
           </div>
         </Nav>
       );
