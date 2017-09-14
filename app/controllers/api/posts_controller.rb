@@ -15,10 +15,11 @@ class Api::PostsController < ApplicationController
   def show
     @neighborhood = Neighborhood.find params[:neighborhood_id]
     @post = @neighborhood.posts.find params[:id]
-    
+    @user = current_user
     render json: {
       neighborhood: @neighborhood,
-      post: @post
+      post: @post,
+      user: @user
     }
   end
 
@@ -62,8 +63,10 @@ class Api::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :content, :image_url, :category, :location, :neighborhood_id, :created_at)
-  end
+    @post = params.require(:post).permit(:title, :content, :image_url, :category, :location, :neighborhood_id, :user_id, :created_at)
+    user_id = {user_id: current_user.id}
+    @post.merge(user_id)
+end
   
 end
 
