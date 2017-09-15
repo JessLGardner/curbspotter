@@ -30,7 +30,7 @@ class PostList extends Component {
   render() {
     return (
       // <BodyStyle>
-      <div className="container">
+      <div className="container p-list-container">
         {this.props.posts.map((post) => (
           <PostCard key={post.id} post={post} neighborhoodId={this.props.neighborhoodId}/>)
         )}
