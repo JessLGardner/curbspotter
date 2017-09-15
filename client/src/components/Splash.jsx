@@ -6,7 +6,8 @@ const SplashStyle = styled.div`
 background-image: url('https://i.imgur.com/k9n51NF.jpg');
 background-position: center;
 background-size: cover;
-
+width:100%;
+height:100%;
 `
 
 const Splash = () => {

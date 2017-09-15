@@ -3,9 +3,9 @@ import axios from 'axios';
 import styled from 'styled-components';
 import NeighborhoodCard from './NeighborhoodCard';
 
-const BodyStyle = styled.div`
-  margin: 50px;
-`
+// const BodyStyle = styled.div`
+//   margin: 50px;
+// `
 class NeighborhoodList extends Component {
 
   constructor(){
@@ -34,7 +34,7 @@ class NeighborhoodList extends Component {
     return (
       // <BodyStyle>
       <div className="container">      
-        <h3>List of Hoods</h3>
+        <h5>what's your fav neighborhood to scout treasures?</h5>
         {this.state.neighborhoods.map((neighborhood) => (
           <NeighborhoodCard key={neighborhood.id} neighborhood={neighborhood}/>)
         )}

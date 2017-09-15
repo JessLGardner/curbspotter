@@ -39,7 +39,7 @@ class GlobalNav extends Component {
     if (this.state.loggedIn) {
       return (
         <nav>
-          <div className="nav-wrapper blue-grey lighten-2">
+          <div className="nav-wrapper grey darken-1">
             <Link to="/neighborhoods" className="brand-logo left">curbspottr</Link>
             <div className="right">
               <Link to={`/users/${id}`}>{this.state.user.nickname} </Link> |
@@ -51,7 +51,7 @@ class GlobalNav extends Component {
     } 
     return (
       <nav>
-        <div className="nav-wrapper blue-grey lighten-2">
+        <div className="nav-wrapper grey darken-1">
           <Link to="/neighborhoods"className="brand-logo left">curbspottr</Link>
           <div className="right">
             <Link to="/signup">sign up </Link> |

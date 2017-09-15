@@ -6,9 +6,9 @@ import PostList from './PostList';
 
 
 
-const NeighborhoodStyle = styled.div`
-  padding: 20px;
-`
+// const NeighborhoodStyle = styled.div`
+//   padding: 20px;
+// `
 
 class Neighborhood extends Component {
 
@@ -39,16 +39,18 @@ class Neighborhood extends Component {
     const id = this.props.match.params.id;
     
     return (
-      <NeighborhoodStyle>
-        <h1>{this.state.neighborhood.name}</h1>
-        <h4>{this.state.neighborhood.description}</h4>
+      // <NeighborhoodStyle>
+      <div className="container">
+        <h4>{this.state.neighborhood.name}</h4>
+        <p>{this.state.neighborhood.description}</p>
 
         <Link to={`/neighborhoods/${id}/post/new`}>
-          <p>make a new post</p>
+          <p>>>> make a new post</p>
         </Link>
 
         <PostList posts={this.state.posts} neighborhoodId={this.props.match.params.id}/>
-      </NeighborhoodStyle>
+      {/* // </NeighborhoodStyle> */}
+      </div>
     );
   }
 }

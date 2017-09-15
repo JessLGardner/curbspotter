@@ -1,13 +1,16 @@
 body {
   margin: 0;
   padding: 0;
+  padding-bottom: 60px;
   font-family: 'Roboto', sans-serif;
   /* background-image: url("https://cdn.pixabay.com/photo/2016/11/19/15/50/chair-1840011_960_720.jpg"); */
   /* background-image: url('./bkgd-chair.jpg');
   background-position: center;
   background-size: 100vh;
   background-repeat: no-repeat;   */
-}
+  background-color: #F0F0F0;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */}
 
 .splash {
   /* background-image: url('./bkgd-chair.jpg');
@@ -23,14 +26,59 @@ body {
 }
 
 .container {
+  padding: 20px;
+  /* padding-bottom: 60px; */
+
+}
+
+.n-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+
+.n-card {
+  width: 95%;
+  /* margin-top: 20px;  */
+  padding: 5px 15px;
+  background-color: white;
+  box-shadow: 1px 1px 8px black;
+}
+
+
+.p-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+
+.p-card {
+  width: 100%;
+  /* margin-top: 20px;  */
+  padding: 5px 15px;
+  background-color: white;
+  box-shadow: 1px 1px 8px black;
 }
 
 form {
-  border: 1px solid black;
+  border: 1px solid #E9E9E9;
+  border-radius: 1px;
   padding: 40px;
+  background-color: white;
 }
 
-p {
+.form-container {
+  padding-top: 20px;
+}
+
+a {
+  text-decoration: none;
+  /* color: */
+}
+
+.p-form {
   padding: 10px 20px;  
 }
 

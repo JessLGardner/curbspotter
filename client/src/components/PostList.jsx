@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import PostCard from './PostCard';
 
-const BodyStyle = styled.div`
-  margin: 50px;
-`
+// const BodyStyle = styled.div`
+//   margin: 50px;
+// `
 
 class PostList extends Component {
 
@@ -29,11 +29,13 @@ class PostList extends Component {
 
   render() {
     return (
-      <BodyStyle>
+      // <BodyStyle>
+      <div className="container">
         {this.props.posts.map((post) => (
           <PostCard key={post.id} post={post} neighborhoodId={this.props.neighborhoodId}/>)
         )}
-      </BodyStyle>
+      {/* </BodyStyle> */}
+      </div>
     );
   }
 }  

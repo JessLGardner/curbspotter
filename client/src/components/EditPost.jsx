@@ -104,22 +104,22 @@ class EditPost extends Component {
   
     return (
       <div className="container">
-        <h3>Edit Post</h3>
+        <h5 className="form-container">Edit Post</h5>
 
           <form onSubmit={this._editPost}>
             <div className="input-field col s8">
               <input onChange={this._handleChange} type="text" name="title" value={this.state.post.title} />
-              {/* <label htmlFor="title">title</label> */}
+              <label className="active" htmlFor="title">title</label>
             </div>
 
             <div className="input-field col s8">
               <input onChange={this._handleChange} type="text" name="content" value={this.state.post.content} />
-              {/* <label htmlFor="content">content </label> */}
+              <label className="active" htmlFor="content">content </label>
             </div>
 
             <div className="input-field col s8">
               <input onChange={this._handleChange} type="text" name="location" value={this.state.post.location} />
-              {/* <label htmlFor="content">location </label> */}
+              <label className="active" htmlFor="content">location </label>
             </div>
 
             <div className="input-field col s8">
@@ -148,10 +148,10 @@ class EditPost extends Component {
                   multiple 
                   accept="image/*"
                   className='dropzone'>
-                <p>drag and drop your image or click here to upload</p>
+                <p className="p-form">drag and drop your image or click here to upload</p>
               </Dropzone>
 
-              <p>{this.state.uploadStatus}</p>
+              <p className="p-form">{this.state.uploadStatus}</p>
             </div>
 
             <div>

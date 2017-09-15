@@ -92,7 +92,7 @@ class NewPost extends Component {
   
     return (
       <div className="container">
-        <h3>New Post</h3>
+        <h5 className="form-container">New Post</h5>
 
         <form onSubmit={this._makePost}>
           <div className="input-field col s8">
@@ -136,10 +136,10 @@ class NewPost extends Component {
                 multiple 
                 accept="image/*"
                 className='dropzone'>
-              <p>drag and drop your image or click here to upload</p>
+              <p className="p-form">drag and drop your image or click here to upload</p>
             </Dropzone>
 
-            <p>{this.state.uploadStatus}</p>
+            <p className="p-form">{this.state.uploadStatus}</p>
           </div>
 
           <div>
