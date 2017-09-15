@@ -1,0 +1,26 @@
+.container {
+font-family: 'Roboto', sans-serif;
+/* margin: 50px 100px; */
+}
+
+form {
+  border: 1px solid black;
+  padding: 40px;
+}
+
+p {
+  padding: 10px 20px;  
+}
+
+.btn {
+  /* background-color: #b0bec5; */
+}
+
+.btn:active {
+  /* background-color: #78909c; */
+}
+
+.dropzone {
+  width: 90%;
+  border: 1 solid black;
+}

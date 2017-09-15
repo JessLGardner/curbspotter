@@ -4,9 +4,15 @@ import Dropzone from 'react-dropzone'
 import axios from 'axios';
 import styled from 'styled-components';
 
-const NewPostStyle = styled.div`
-  margin: 20px;
-`
+// const NewPostStyle = styled.div`
+//   font-family: 
+//   margin: 50px 100px;
+//   form {
+//   }
+//   p {
+//     padding: 10px 20px;
+//   }
+// `
 
 class NewPost extends Component {
   constructor(){
@@ -75,7 +81,7 @@ class NewPost extends Component {
         }],
         headers: { "X-Requested-With": "XMLHttpRequest" },
       }).then(response => {
-        this.setState({uploadStatus: "picture upload successful!"})
+        this.setState({uploadStatus: "image upload successful!"})
         const data = response.data;
         const fileURL = data.secure_url // You should store this URL for future references in your app
         console.log(data);
@@ -96,21 +102,30 @@ class NewPost extends Component {
     const neighborhoodId = this.props.match.params.neighborhoodId;
   
     return (
-      <NewPostStyle>
-        <h1>New Post</h1>
+      // <NewPostStyle>
+      <div className="container">
+        <h3>New Post</h3>
+
         <form onSubmit={this._makePost}>
-          <div>
-            <label htmlFor="title">Title: </label>
+
+          <div className="input-field col s8">
             <input onChange={this._handleChange} type="text" name="title" value={this.state.post.title} />
+            <label htmlFor="title">title</label>
           </div>
-          <div>
-            <label htmlFor="content">Content: </label>
+
+          <div className="input-field col s8">
             <input onChange={this._handleChange} type="text" name="content" value={this.state.post.content} />
+            <label htmlFor="content">content </label>
           </div>
-          <div>
-            <label htmlFor="title">Category: </label>
-            <select onChange={this._handleChange} type="text" name="category" value={this.state.post.category}> 
-                <option></option>
+
+          <div className="input-field col s8">
+            <input onChange={this._handleChange} type="text" name="location" value={this.state.post.location} />
+            <label htmlFor="content">location </label>
+          </div>
+
+          <div className="input-field col s8">
+            <select className="browser-default" onChange={this._handleChange} type="text" name="category" value={this.state.post.category}> 
+                {/* <option defaultValue="choose category" disabled>choose category</option> */}
                 <option>construction</option>
                 <option>fitness</option>
                 <option>furniture</option>
@@ -119,28 +134,37 @@ class NewPost extends Component {
                 <option>pets</option>
             </select>
           </div>
-          <div>
-            <label htmlFor="content">Location: </label>
-            <input onChange={this._handleChange} type="text" name="location" value={this.state.post.location} />
-          </div>
-          <div>
-            <label htmlFor="content">Image: </label>
+            <label htmlFor="category">   choose category</label>
+              <br/>
+              <br/>
+              <br/>
+ 
+          {/* <div className="input-field col s8">
             <input onChange={this._handleChange} type="text" name="image_url" value={this.state.post.image_url} />
+            <label htmlFor="content">image url </label>
+          </div> */}
+
+          <div>
+            <Dropzone 
+                onDrop={this._handleDrop} 
+                multiple 
+                accept="image/*">
+              <p>drag and drop your image or click here to upload</p>
+              
+            </Dropzone>
+
+            <p>{this.state.uploadStatus}</p>
           </div>
 
-          <Dropzone 
-              onDrop={this._handleDrop} 
-              multiple 
-              accept="image/*">
-            <p>Drop your files or click here to upload</p>
-          </Dropzone>
+          <div>
+            <button className="btn waves-effect waves-light blue-grey lighten-2">Submit<i className="material-icons right">send</i></button>
+          </div>
 
-          <p>{this.state.uploadStatus}</p>
-
-          <button>Submit</button>
         </form>
+
         {this.state.redirect && (<Redirect to={`/neighborhoods/${neighborhoodId}/posts`}/>)}
-      </NewPostStyle>
+      {/* </NewPostStyle> */}
+      </div>
     );
   }
 
