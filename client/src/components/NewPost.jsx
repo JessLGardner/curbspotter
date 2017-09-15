@@ -19,7 +19,8 @@ class NewPost extends Component {
         image_url: '',        
         category: '',
         location: ''
-      }
+      }, 
+      uploadStatus: ''
     }
   }
 
@@ -46,7 +47,7 @@ class NewPost extends Component {
     })
   }
 
-  handleDrop = files => {
+  _handleDrop = files => {
     // Push all the axios request promise into a single array
     const apiKey = process.env.REACT_APP_UPLOAD_API_KEY
     const uploadPreset = process.env.REACT_APP_UPLOAD_PRESET
@@ -74,6 +75,7 @@ class NewPost extends Component {
         }],
         headers: { "X-Requested-With": "XMLHttpRequest" },
       }).then(response => {
+        this.setState({uploadStatus: "picture upload successful!"})
         const data = response.data;
         const fileURL = data.secure_url // You should store this URL for future references in your app
         console.log(data);
@@ -118,21 +120,23 @@ class NewPost extends Component {
             </select>
           </div>
           <div>
+            <label htmlFor="content">Location: </label>
+            <input onChange={this._handleChange} type="text" name="location" value={this.state.post.location} />
+          </div>
+          <div>
             <label htmlFor="content">Image: </label>
             <input onChange={this._handleChange} type="text" name="image_url" value={this.state.post.image_url} />
           </div>
 
           <Dropzone 
-            onDrop={this.handleDrop} 
-            multiple 
-            accept="image/*" 
-          >
+              onDrop={this._handleDrop} 
+              multiple 
+              accept="image/*">
             <p>Drop your files or click here to upload</p>
           </Dropzone>
-          <div>
-            <label htmlFor="content">Location: </label>
-            <input onChange={this._handleChange} type="text" name="location" value={this.state.post.location} />
-          </div>
+
+          <p>{this.state.uploadStatus}</p>
+
           <button>Submit</button>
         </form>
         {this.state.redirect && (<Redirect to={`/neighborhoods/${neighborhoodId}/posts`}/>)}
