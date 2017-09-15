@@ -25,7 +25,7 @@ const PostCard = (props) => {
     <div className="container p-container">
       <div className="p-card">
       <Link to={`/neighborhoods/${id}/posts/${post.id}`}>
-      <img src={post.image_url} className="p-card-img" alt=""/>
+      <img src={post.image_url} className="img" alt=""/>
         <h5>{post.title}</h5>
       </Link>
     </div>

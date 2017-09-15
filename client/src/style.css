@@ -42,6 +42,10 @@ body {
   text-align: justify;
 }
 
+/* .breadcrumb-div {
+  display: inline-block;
+} */
+
 .n-card {
   width: 95%;
   /* margin-top: 20px;  */
@@ -93,7 +97,7 @@ a {
   padding: 10px 20px;  
 }
 
-.p-card-img {
+.img {
   width: 100%;
   border-radius: 1px;  
 }

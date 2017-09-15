@@ -3,12 +3,12 @@ import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios';
 import styled from 'styled-components';
 
-const PostStyle = styled.div`
-  margin: 20px;
-  a {
-    text-decoration: none;
-  }
-`
+// const PostStyle = styled.div`
+//   margin: 20px;
+//   a {
+//     text-decoration: none;
+//   }
+// `
 
 class Post extends Component {
   constructor(){
@@ -50,18 +50,27 @@ class Post extends Component {
     const id = this.props.match.params.id;
     // const user = current_user
 
+
+    // <div class="col s12">
+    //   <a href="#!" class="breadcrumb">First</a>
+    //   <a href="#!" class="breadcrumb">Second</a>
+    //   <a href="#!" class="breadcrumb">Third</a>
+    // </div>
+
     return (
-      <PostStyle>
-        <h2><Link to={`/neighborhoods/${neighborhoodId}/posts`}>
-          {this.state.neighborhood.name}
-        </Link></h2>
-        <h2>{this.state.post.title}</h2>
-        <h4>category: {this.state.post.category}</h4>
-        <img src={this.state.post.image_url} alt=""/>
+      // <PostStyle>
+      <div className="container">
+        <div>
+          <Link to={`/neighborhoods/${neighborhoodId}/posts`} className="breadcrumb">
+            <p>{this.state.neighborhood.name}</p>
+          </Link>
+          <p className="breadcrumb">{this.state.post.title}</p>
+        </div>
+        <img className="img" src={this.state.post.image_url} alt=""/>
         <p>{this.state.post.content}</p><br/>
         <p>{this.state.post.location}</p>
-        <p>{this.state.post.created_at}</p>
-
+        <small>category: {this.state.post.category}</small><br/>
+        <small>{this.state.post.created_at}</small><br/>
 
         {this.state.post.user_id == this.state.user.id ? 
         <div>
@@ -71,7 +80,8 @@ class Post extends Component {
         </div>
         :
         ''}
-      </PostStyle>
+      </div>
+      // </PostStyle>
     );
   }
 }
