@@ -4,15 +4,6 @@ import Dropzone from 'react-dropzone'
 import axios from 'axios';
 import styled from 'styled-components';
 
-// const NewPostStyle = styled.div`
-//   font-family: 
-//   margin: 50px 100px;
-//   form {
-//   }
-//   p {
-//     padding: 10px 20px;
-//   }
-// `
 
 class NewPost extends Component {
   constructor(){
@@ -102,12 +93,10 @@ class NewPost extends Component {
     const neighborhoodId = this.props.match.params.neighborhoodId;
   
     return (
-      // <NewPostStyle>
       <div className="container">
         <h3>New Post</h3>
 
         <form onSubmit={this._makePost}>
-
           <div className="input-field col s8">
             <input onChange={this._handleChange} type="text" name="title" value={this.state.post.title} />
             <label htmlFor="title">title</label>
@@ -125,7 +114,6 @@ class NewPost extends Component {
 
           <div className="input-field col s8">
             <select className="browser-default" onChange={this._handleChange} type="text" name="category" value={this.state.post.category}> 
-                {/* <option defaultValue="choose category" disabled>choose category</option> */}
                 <option>construction</option>
                 <option>fitness</option>
                 <option>furniture</option>
@@ -148,22 +136,21 @@ class NewPost extends Component {
             <Dropzone 
                 onDrop={this._handleDrop} 
                 multiple 
-                accept="image/*">
+                accept="image/*"
+                className='dropzone'>
               <p>drag and drop your image or click here to upload</p>
-              
             </Dropzone>
 
             <p>{this.state.uploadStatus}</p>
           </div>
 
           <div>
-            <button className="btn waves-effect waves-light blue-grey lighten-2">Submit<i className="material-icons right">send</i></button>
+            <button className="btn waves-effect waves-light blue-grey lighten-2">Submit<i className="material-icons md-18 right">send</i></button>
           </div>
 
         </form>
 
         {this.state.redirect && (<Redirect to={`/neighborhoods/${neighborhoodId}/posts`}/>)}
-      {/* </NewPostStyle> */}
       </div>
     );
   }
