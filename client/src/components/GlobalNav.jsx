@@ -1,24 +1,6 @@
 import React, {Component} from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import styled from 'styled-components';
-
-const Nav = styled.div`
-  width: 95%;  
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2.5%;
-  background-color: grey;
-  box-shadow: 0px 1px 3px black;
-  a{
-    text-decoration: none;
-    margin: 0 5px;
-    &:visited{
-      color: white;
-    }
-  }
-`
 
 class GlobalNav extends Component {
   constructor() {
@@ -56,27 +38,27 @@ class GlobalNav extends Component {
 
     if (this.state.loggedIn) {
       return (
-        <Nav>
-          <div>
-            <Link to="/neighborhoods"><h2>curbspottr</h2></Link>
+        <nav>
+          <div className="nav-wrapper blue-grey lighten-2">
+            <Link to="/neighborhoods" className="brand-logo left">curbspottr</Link>
+            <div className="right">
+              <Link to={`/users/${id}`}>{this.state.user.nickname} </Link> |
+              <Link to='/' onClick={this._logOut}> log out</Link>
+            </div>
           </div>
-          <div>
-            <Link to={`/users/${id}`}>{this.state.user.nickname} </Link> |
-            <Link to='/' onClick={this._logOut}> log out</Link>
-          </div>
-        </Nav>
+        </nav>
       );
     } 
     return (
-      <Nav>
-        <div>
-          <Link to="/neighborhoods"><h2>curbspottr</h2></Link>
+      <nav>
+        <div className="nav-wrapper blue-grey lighten-2">
+          <Link to="/neighborhoods"className="brand-logo left">curbspottr</Link>
+          <div className="right">
+            <Link to="/signup">sign up </Link> |
+            <Link to="/signin"> log in</Link>
+          </div>
         </div>
-        <div>
-          <Link to="/signup">sign up </Link> |
-          <Link to="/signin"> log in</Link>
-        </div>
-      </Nav>
+      </nav>
     );
   }
 }

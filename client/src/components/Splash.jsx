@@ -3,20 +3,17 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const SplashStyle = styled.div`
-margin: 30px;
-button {
-  background-color: teal;
-  color: white;
-  width: 25%;
-  height: 35px;
-}
+background-image: url('https://i.imgur.com/k9n51NF.jpg');
+background-position: center;
+background-size: cover;
+
 `
 
 const Splash = () => {
   return (
     <SplashStyle>
-
-     <h2>Make their trash your treasure.</h2>
+     <p className="splash">their trash is</p>
+     <p className="splash"><strong>your treasure</strong></p>
 
 
       {/* <Link to='/signUp'><button>Sign Up</button></Link>
@@ -26,7 +23,56 @@ const Splash = () => {
       <br/>
       <br/>
       <Link to='/neighborhoods'><button>Guest</button></Link> */}
-
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>      
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>      
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
     </SplashStyle>
   );
 };

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import Dropzone from 'react-dropzone'
 import axios from 'axios';
-import styled from 'styled-components';
-
 
 class EditPost extends Component {
   constructor(){

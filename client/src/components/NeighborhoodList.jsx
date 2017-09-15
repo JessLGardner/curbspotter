@@ -32,12 +32,14 @@ class NeighborhoodList extends Component {
 
   render() {
     return (
-      <BodyStyle>
-        <h1>List of Hoods</h1>
+      // <BodyStyle>
+      <div className="container">      
+        <h3>List of Hoods</h3>
         {this.state.neighborhoods.map((neighborhood) => (
           <NeighborhoodCard key={neighborhood.id} neighborhood={neighborhood}/>)
         )}
-      </BodyStyle>
+      {/* </BodyStyle> */}
+      </div>
     );
   }
 }
