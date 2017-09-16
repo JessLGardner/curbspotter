@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom'
+import TimeAgo from 'react-timeago'
 import axios from 'axios';
 import styled from 'styled-components';
 
@@ -50,27 +51,20 @@ class Post extends Component {
     const id = this.props.match.params.id;
     // const user = current_user
 
-
-    // <div class="col s12">
-    //   <a href="#!" class="breadcrumb">First</a>
-    //   <a href="#!" class="breadcrumb">Second</a>
-    //   <a href="#!" class="breadcrumb">Third</a>
-    // </div>
-
     return (
       // <PostStyle>
-      <div className="container">
-        <div>
-          <Link to={`/neighborhoods/${neighborhoodId}/posts`} className="breadcrumb">
-            <p>{this.state.neighborhood.name}</p>
+      <div className="container p-container">
+        <div className="post-title">
+          <Link to={`/neighborhoods/${neighborhoodId}/posts`}>
+            <span className="post-crumb">{this.state.neighborhood.name}  </span>
           </Link>
-          <p className="breadcrumb">{this.state.post.title}</p>
+          <span className="title-crumb">>  {this.state.post.title}</span>
         </div>
         <img className="img" src={this.state.post.image_url} alt=""/>
         <p>{this.state.post.content}</p><br/>
         <p>{this.state.post.location}</p>
-        <small>category: {this.state.post.category}</small><br/>
-        <small>{this.state.post.created_at}</small><br/>
+        <small><strong>category:</strong> {this.state.post.category}</small><br/>
+        <small><strong>posted:</strong> <TimeAgo date={this.state.post.created_at}/></small><br/>
 
         {this.state.post.user_id == this.state.user.id ? 
         <div>

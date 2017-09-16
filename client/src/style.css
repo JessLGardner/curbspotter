@@ -3,6 +3,7 @@ body {
   padding: 0;
   padding-bottom: 60px;
   font-family: 'Roboto', sans-serif;
+  
   /* background-image: url("https://cdn.pixabay.com/photo/2016/11/19/15/50/chair-1840011_960_720.jpg"); */
   /* background-image: url('./bkgd-chair.jpg');
   background-position: center;
@@ -35,16 +36,13 @@ body {
   display: flex;
   justify-content: center;
   margin-bottom: 0;
-  border-radius: 1px;
 }
 .n-text {
   font-size: 18px;
   text-align: justify;
 }
 
-/* .breadcrumb-div {
-  display: inline-block;
-} */
+
 
 .n-card {
   width: 95%;
@@ -52,6 +50,7 @@ body {
   padding: 5px 15px;
   background-color: white;
   box-shadow: 1px 1px 8px black;
+  border-radius: 2px;
 }
 
 .p-list-container{
@@ -59,7 +58,7 @@ body {
   padding: 0;
 }
 
-.p-container {
+.p-card-container {
   display: flex;
   justify-content: center;
   margin: 0 auto;
@@ -67,19 +66,31 @@ body {
   padding-bottom: 5px;
 }
 
+.post-title {
+  padding-bottom: 10px;
+}
 
 .p-card {
   width: 100%;
+  /* display: flex; */
+  /* justify-content: flex-start; */
   /* margin-top: 20px;  */
-  padding: 5px 15px;
+  padding: 10px 15px;
   background-color: white;
   box-shadow: 1px 1px 8px black;
-  border-radius: 1px;  
+  border-radius: 2px;  
+}
+
+.p-container {
+  margin-top: 40px;
+  background-color: white;
+  border-radius: 2px;    
+  /* padding: 0; */
 }
 
 form {
   border: 1px solid #E9E9E9;
-  border-radius: 1px;
+  border-radius: 2px;
   padding: 40px;
   background-color: white;
 }
@@ -90,7 +101,14 @@ form {
 
 a {
   text-decoration: none;
-  /* color: */
+  /* color: black; */
+}
+
+.p-card-img {
+  max-width: 100%;
+  border-radius: 2px; 
+  display: block;
+  margin: auto;
 }
 
 .p-form {
@@ -98,8 +116,11 @@ a {
 }
 
 .img {
-  width: 100%;
-  border-radius: 1px;  
+  max-width: 100%;
+  border-radius: 2px; 
+
+  /* background-color: black; */
+  /* padding-top: 10px; */
 }
 
 .nav-wrapper {
@@ -107,6 +128,13 @@ a {
   padding-left: 8px;
 }
 
+.post-crumb {
+  font-size: 26px;
+}
+
+.title-crumb {
+  font-size: 20px;
+}
 
 .dropzone {
   width: 100%;
