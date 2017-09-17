@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import TimeAgo from 'react-timeago';
 import axios from 'axios';
-import styled from 'styled-components';
 
 
 class Post extends Component {
@@ -62,21 +61,8 @@ class Post extends Component {
           <Link to={`/neighborhoods/${neighborhoodId}/posts`}>
             <span className="post-crumb">{this.state.neighborhood.name}  </span>
           </Link>
-          
           <span className="title-crumb">>  {this.state.post.title}</span>
-          
-          {/* <button onClick={this._toggleSettings} className="btn waves-effect waves-light blue-grey lighten-2 z-depth-1 btn-small">
-            <i className="material-icons tiny">settings</i>
-          </button>
-              {!this.state.settings ? ''
-              :         
-                <div>
-                  <Link to={`/neighborhoods/${neighborhoodId}/posts/${id}/edit`}><button>edit</button></Link>
-                  <button onClick={this._deletePost}>delete</button>
-                    {this.state.redirect && (<Redirect to={`/neighborhoods/${neighborhoodId}/posts`}/>)}
-                </div>}  */}
         </div>
-
 
         <img className="img" src={this.state.post.image_url} alt=""/>
         <p className="content">{this.state.post.content}</p>
@@ -90,26 +76,25 @@ class Post extends Component {
             <small><strong>posted:</strong> <TimeAgo date={this.state.post.created_at}/></small>
           </div>
 
-
-          {this.state.post.user_id == this.state.user.id ? 
-          <div>
-            <button onClick={this._toggleSettings} className="btn waves-effect waves-light blue-grey lighten-2 z-depth-1 btn-set right">
-                <i className="material-icons tiny">settings</i>
-              </button>
-                  {!this.state.settings ? ''
-                  :         
-                    <div>
-                      <br/>
-                      <br/>
-                      <Link to={`/neighborhoods/${neighborhoodId}/posts/${id}/edit`}><button className="btn waves-effect waves-light blue-grey lighten-2 z-depth-1 btn-small right">edit</button></Link>
-                      <br/>
-                      <br/>    
-                      <button onClick={this._deletePost} className="btn waves-effect waves-light red lighten-2 z-depth-1 btn-small right">delete</button>
-                        {this.state.redirect && (<Redirect to={`/neighborhoods/${neighborhoodId}/posts`}/>)}
-                    </div>} 
-          </div>
-          :
-          ''}
+            {this.state.post.user_id == this.state.user.id ? 
+            <div>
+              <button onClick={this._toggleSettings} className="btn waves-effect waves-light blue-grey lighten-2 z-depth-1 btn-set right">
+                  <i className="material-icons tiny">settings</i>
+                </button>
+                    {!this.state.settings ? ''
+                    :         
+                      <div>
+                        <br/>
+                        <br/>
+                        <Link to={`/neighborhoods/${neighborhoodId}/posts/${id}/edit`}><button className="btn waves-effect waves-light blue-grey lighten-2 z-depth-1 btn-small right">edit</button></Link>
+                        <br/>
+                        <br/>    
+                        <button onClick={this._deletePost} className="btn waves-effect waves-light red lighten-2 z-depth-1 btn-small right">delete</button>
+                          {this.state.redirect && (<Redirect to={`/neighborhoods/${neighborhoodId}/posts`}/>)}
+                      </div>} 
+            </div>
+            :
+            ''}
         </div>
       </div>
     );

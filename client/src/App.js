@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
-import GlobalNav from './components/GlobalNav';
 import Splash from './components/Splash';
+import GlobalNav from './components/GlobalNav';
 import NeighborhoodList from './components/NeighborhoodList';
 import Neighborhood from './components/Neighborhood';
 import Post from './components/Post';
@@ -11,7 +11,6 @@ import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import UserProfile from './components/UserProfile';
 import {setAxiosDefaults} from './util';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './style.css'
 
 

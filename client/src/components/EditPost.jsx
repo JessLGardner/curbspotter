@@ -41,7 +41,7 @@ class EditPost extends Component {
     const id = this.props.match.params.id;
     const res = await axios.put(`/api/neighborhoods/${neighborhoodId}/posts/${id}`, post)
     
-    // const redirect = !this.state.redirect
+    const redirect = !this.state.redirect
     this.setState({redirect: true})
     }
 

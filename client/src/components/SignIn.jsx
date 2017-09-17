@@ -38,18 +38,23 @@ class SignIn extends Component {
       return <Redirect to="/neighborhoods" />
     }
     return (
-      <div>
-        <form onSubmit={this._signIn}>
-          <div>
-            <label htmlFor="email">E-mail: </label>
+      <div className="container">
+        <form onSubmit={this._signIn} className="z-depth-1">
+
+          <div className="input-field col s8">
             <input onChange={this._handleChange} type="text" name="email" value={this.state.email}/>
+            <label htmlFor="email">email </label>
           </div>
-          <div>
-            <label htmlFor="password">Password: </label>
+
+          <div className="input-field col s8">
             <input onChange={this._handleChange} type="password" name="password" value={this.state.password} />
+            <label htmlFor="password">password </label>
           </div>
-          <button>Sign In</button>
-          <Link to='/signup'>Sign Up</Link>
+            <br/>
+          <button className="btn waves-effect waves-light blue-grey lighten-2 z-depth-1">Sign In</button>
+            &nbsp;
+            &nbsp;
+          <Link to='/signup' className="btn waves-effect waves-light light-blue darken-1 z-depth-1">Sign Up</Link>
         </form>
       </div>
     );
