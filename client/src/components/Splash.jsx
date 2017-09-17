@@ -13,7 +13,7 @@ height:100%;
 const Splash = () => {
   return (
     <SplashStyle>
-     <p className="splash">their trash is</p>
+     <p className="splash">their trash</p>
      <p className="splash"><strong>your treasure</strong></p>
 
 

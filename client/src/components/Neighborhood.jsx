@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import styled from 'styled-components';
 import PostList from './PostList';
 
-
-
-// const NeighborhoodStyle = styled.div`
-//   padding: 20px;
-// `
 
 class Neighborhood extends Component {
 
   constructor(){
     super();
     this.state = {
+      errors: '',      
       neighborhood: {},
       posts: []
     }
@@ -25,21 +20,23 @@ class Neighborhood extends Component {
   }
 
   _fetchNeighborhoodAndPosts = async () => {
-    console.log("Fetching info!")
-    const id = this.props.match.params.id;
-    const res = await axios.get(`/api/neighborhoods/${id}/posts`)
-    console.log(res);
-    this.setState({
-      neighborhood: res.data.neighborhood,
-      posts: res.data.posts
-    })
+    try {
+      const id = this.props.match.params.id;
+      const res = await axios.get(`/api/neighborhoods/${id}/posts`)
+      // console.log(res);
+      this.setState({
+        neighborhood: res.data.neighborhood,
+        posts: res.data.posts
+      })
+    } catch (err) {
+      this.setState({error: err})
+    }
   }
 
   render() {
     const id = this.props.match.params.id;
     
     return (
-      // <NeighborhoodStyle>
       <div className="container">
         <h4>{this.state.neighborhood.name}</h4>
         <p className="n-text">{this.state.neighborhood.description}</p>
@@ -49,7 +46,6 @@ class Neighborhood extends Component {
         </Link>
 
         <PostList posts={this.state.posts} neighborhoodId={this.props.match.params.id}/>
-      {/* // </NeighborhoodStyle> */}
       </div>
     );
   }

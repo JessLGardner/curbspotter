@@ -47,6 +47,7 @@ class UserProfile extends Component {
         <br/>
         <br/>
         <a href='/'><button onClick={this._deleteProfile}>DELETE PROFILE</button></a>
+      
       </div>
     );
   }
