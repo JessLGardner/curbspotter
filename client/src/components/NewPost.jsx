@@ -20,10 +20,6 @@ class NewPost extends Component {
     }
   }
 
-  // componentWillMount(){
-  //   console.log(process.env)
-  // }
-
   _newPost = async (e) => {
     try {
       e.preventDefault();
@@ -98,6 +94,7 @@ class NewPost extends Component {
     const neighborhoodId = this.props.match.params.neighborhoodId;
   
     return (
+      <div>
       <div className="container">
         <h5 className="form-title">New Post</h5>
 
@@ -149,7 +146,7 @@ class NewPost extends Component {
             <br/>
 
             <span className="p-form">{this.state.uploadStatus}</span>
-            <i className="material-icons tiny">check</i>
+            {/* <i className="material-icons tiny">check</i> */}
           </div>
             <br/>
           <div>
@@ -160,6 +157,18 @@ class NewPost extends Component {
 
         {this.state.redirect && (<Redirect to={`/neighborhoods/${neighborhoodId}/posts`}/>)}
       </div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>      
+            <br/>
+            </div>
     );
   }
   

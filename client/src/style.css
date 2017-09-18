@@ -1,9 +1,11 @@
 body {
   margin: 0;
   padding: 0;
-  padding-bottom: 60px;
+  /* padding-bottom: 60px; */
   font-family: 'Roboto', sans-serif;
-  
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
   /* background-image: url("https://cdn.pixabay.com/photo/2016/11/19/15/50/chair-1840011_960_720.jpg"); */
   /* background-image: url('./bkgd-chair.jpg');
   background-position: center;
@@ -12,15 +14,22 @@ body {
   background-color: #F0F0F0;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */}
-
+  
+  /* .main {
+    flex: 1 0 auto;
+  } */
+  
 .splash {
   /* background-image: url('./bkgd-chair.jpg');
   background-position: center;
   background-size: 100vh; */
   /* background-repeat: no-repeat;   */
   font-size: 50px;
-  color: white;
-  text-shadow: 2px 2px black;
+  color: #29b6f6;
+  /* color: #4fc3f7; */
+  /* color: #81c784; */
+  /* text-shadow: 2px 2px #1D1D1D; */
+  text-shadow: 2px 2px white;
   transform: translate(15%, 200px);
   margin: 0;
   padding: 0;
@@ -141,8 +150,14 @@ a {
 }
 
 .nav-wrapper {
-  padding-right: 10px;
-  padding-left: 8px;
+  padding-right: 24px;
+  /* padding-left: 24px; */
+}
+
+.left {
+  padding-left: 24px !important;
+  text-shadow: 2px 2px black;
+  
 }
 
 .post-crumb {
@@ -153,10 +168,24 @@ a {
   font-size: 20px;
 }
 
+.foot-col-1 {
+  text-align: right;
+}
+
+.foot-logo {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 34px;
+  font-family: 'Roboto', sans-serif;  
+  text-shadow: 2px 2px black;
+  
+}
+
 .dropzone {
   width: 100%;
   height: 200px;
   border: 1px dashed black;
+  border-radius: 2px; 
 }
 
 .set-div {
@@ -181,4 +210,41 @@ a {
   padding-right: 16px;
   /* height: 26px; */
   /* width: 60px; */
+}
+
+.page-footer {
+  color: white;
+  margin-top: 0 !important;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  margin: 0;
+}
+
+.footer-copyright {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  padding-bottom: 5px;
+}
+
+.foot-container {
+  padding: 0 20px;
+}
+
+.code-icon {
+  padding-top: 14px;
+}
+
+.link-color {
+  color: #29b6f6;
+}
+
+.splash-bkgd {
+background-image: url('https://i.imgur.com/lViKVUL.jpg');
+background-position: center;
+background-size: cover;
 }

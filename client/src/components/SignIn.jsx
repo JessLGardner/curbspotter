@@ -38,6 +38,8 @@ class SignIn extends Component {
       return <Redirect to="/neighborhoods" />
     }
     return (
+      <div>
+      <div className="container">
       <div className="container">
         <form onSubmit={this._signIn} className="z-depth-1">
 
@@ -54,9 +56,31 @@ class SignIn extends Component {
           <button className="btn waves-effect waves-light blue-grey lighten-2 z-depth-1">Sign In</button>
             &nbsp;
             &nbsp;
-          <Link to='/signup' className="btn waves-effect waves-light light-blue darken-1 z-depth-1">Sign Up</Link>
+          <Link to='/signup' className="btn waves-effect waves-light light-blue lighten-1 z-depth-1">Sign Up</Link>
         </form>
       </div>
+      </div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>      
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>      
+            <br/>
+            </div>
     );
   }
 }

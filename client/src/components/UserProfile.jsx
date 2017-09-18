@@ -39,6 +39,7 @@ class UserProfile extends Component {
 
   render() {
     return (
+      <div>
       <div className="container">
       <div className="container">
         <div className="u-card z-depth-1">
@@ -50,6 +51,18 @@ class UserProfile extends Component {
           <a href='/'><button onClick={this._deleteProfile} className="btn waves-effect waves-light red lighten-2 z-depth-1">delete profile</button></a>     
         </div>
       </div>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>      
+      <br/>
       </div>
     );
   }

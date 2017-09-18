@@ -8,7 +8,7 @@ const NeighborhoodCard = (props) => {
   return (
     <div className="container n-container">
       <div className="n-card z-depth-1">
-        <Link to={`/neighborhoods/${neighborhood.id}/posts`}>
+        <Link to={`/neighborhoods/${neighborhood.id}/posts`} className="link-color">
           <h5>{neighborhood.name}</h5>
         </Link>
       </div>

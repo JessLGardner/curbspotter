@@ -41,7 +41,7 @@ class GlobalNav extends Component {
           <div className="nav-wrapper grey darken-1">
             <Link to="/neighborhoods" className="brand-logo left">curbspottr</Link>
             <div className="right">
-              <Link to={`/users/${id}`}>hey {this.state.user.nickname}   </Link> |
+              <Link to={`/users/${id}`} className="link-color">hey {this.state.user.nickname}   </Link> |
               <Link to='/' onClick={this._logOut}>   log out</Link>
             </div>
           </div>

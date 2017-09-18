@@ -56,10 +56,11 @@ class Post extends Component {
     const id = this.props.match.params.id;
 
     return (
+      <div>
       <div className="container p-container z-depth-1">
         <div className="post-title">
           <Link to={`/neighborhoods/${neighborhoodId}/posts`}>
-            <span className="post-crumb">{this.state.neighborhood.name}  </span>
+            <span className="post-crumb link-color">{this.state.neighborhood.name}  </span>
           </Link>
           <span className="title-crumb">>  {this.state.post.title}</span>
         </div>
@@ -97,6 +98,18 @@ class Post extends Component {
             ''}
         </div>
       </div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>      
+            <br/>
+        </div>
     );
   }
 }

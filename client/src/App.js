@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import Splash from './components/Splash';
 import GlobalNav from './components/GlobalNav';
+import GlobalFoot from './components/GlobalFoot';
 import NeighborhoodList from './components/NeighborhoodList';
 import Neighborhood from './components/Neighborhood';
 import Post from './components/Post';
@@ -35,6 +36,7 @@ class App extends Component {
           <Route exact path="/neighborhoods/:neighborhoodId/post/new" component={NewPost}/>         
           <Route exact path="/neighborhoods/:neighborhoodId/posts/:id" component={Post}/>
           <Route exact path="/neighborhoods/:neighborhoodId/posts/:id/edit" component={EditPost}/>
+          <GlobalFoot />
         </div>
       </Router>
     );

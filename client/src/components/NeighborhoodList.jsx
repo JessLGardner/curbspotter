@@ -34,6 +34,17 @@ class NeighborhoodList extends Component {
         {this.state.neighborhoods.map((neighborhood) => (
           <NeighborhoodCard key={neighborhood.id} neighborhood={neighborhood}/>)
         )}
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>      
+      <br/>
       </div>
     );
   }

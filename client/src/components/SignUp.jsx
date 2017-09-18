@@ -41,6 +41,8 @@ class SignUp extends Component {
       return <Redirect to="/neighborhoods"/>
     }
     return (
+      <div>
+      <div className="container">
       <div className="container">
         <form onSubmit={this._signUp} className="z-depth-1">
           <div className="input-field col s8">
@@ -64,12 +66,23 @@ class SignUp extends Component {
             <label htmlFor="password">confirm password </label>
           </div>
           <br/>
-         <button className="btn waves-effect waves-light light-blue darken-1 z-depth-1">Sign Up</button>
+         <button className="btn waves-effect waves-light light-blue lighten-1 z-depth-1">Sign Up</button>
           &nbsp;
           &nbsp;
          <Link to="/signin" className="btn waves-effect waves-light blue-grey lighten-2 z-depth-1">Sign In</Link>
        </form>
       </div>
+      </div>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>      
+                  <br/>
+                  </div>
     );
   }
 }

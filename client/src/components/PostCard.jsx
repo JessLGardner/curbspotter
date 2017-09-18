@@ -11,7 +11,7 @@ const PostCard = (props) => {
       <div className="p-card z-depth-1">
         <Link to={`/neighborhoods/${id}/posts/${post.id}`}>
           <img src={post.image_url} className="p-card-img" alt=""/>
-          <h6>{post.title}</h6>
+          <h6 className="link-color">{post.title}</h6>
         </Link>
       </div>
     </div>
