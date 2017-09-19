@@ -20,7 +20,7 @@ class EditPost extends Component {
   }
 
   componentWillMount(){
-    const postId = this.props.match.params.id
+    // const postId = this.props.match.params.id
     this._fetchPost()
     
   }

@@ -77,7 +77,7 @@ class Post extends Component {
             <small><strong>posted:</strong> <TimeAgo date={this.state.post.created_at}/></small>
           </div>
 
-            {this.state.post.user_id == this.state.user.id ? 
+            {this.state.post.user_id === this.state.user.id ? 
             <div>
               <button onClick={this._toggleSettings} className="btn waves-effect waves-light blue-grey lighten-2 z-depth-1 btn-set right">
                   <i className="material-icons tiny">settings</i>
