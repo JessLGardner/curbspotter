@@ -22,6 +22,7 @@ class EditPost extends Component {
   componentWillMount(){
     const postId = this.props.match.params.id
     this._fetchPost()
+    
   }
 
   _fetchPost = async () => {
@@ -41,7 +42,7 @@ class EditPost extends Component {
     const id = this.props.match.params.id;
     const res = await axios.put(`/api/neighborhoods/${neighborhoodId}/posts/${id}`, post)
     
-    // const redirect = !this.state.redirect
+    const redirect = !this.state.redirect
     this.setState({redirect: true})
     }
 
@@ -53,6 +54,9 @@ class EditPost extends Component {
       post: newState
     })
   }
+
+  //////////////////////// DRAG AND DROP /////////////////////////////////
+  /////////////// Bilal Budhani @ blog.codeinfuse.com ///////////////////
 
   _handleDrop = files => {
     // Push all the axios request promise into a single array
@@ -97,12 +101,14 @@ class EditPost extends Component {
       // ... perform after upload is successful operation
     });
   }
+  //////////////////////// DRAG AND DROP /////////////////////////////////
 
   render() {
     const neighborhoodId = this.props.match.params.neighborhoodId;
     const id = this.props.match.params.id;
   
     return (
+      <div>
       <div className="container">
         <h5 className="form-container">Edit Post</h5>
 
@@ -161,6 +167,15 @@ class EditPost extends Component {
           </form>
 
         {this.state.redirect && (<Redirect to={`/neighborhoods/${neighborhoodId}/posts/${id}`}/>)}
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>      
+      <br/>
       </div>
     );
   }

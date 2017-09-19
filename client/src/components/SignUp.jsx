@@ -42,32 +42,47 @@ class SignUp extends Component {
     }
     return (
       <div>
-        <form onSubmit={this._signUp}>
-          <div>
-            <label htmlFor="nickname">Username: </label>
+      <div className="container">
+      <div className="container">
+        <form onSubmit={this._signUp} className="z-depth-1">
+          <div className="input-field col s8">
+            <label htmlFor="nickname">username </label>
             <input onChange={this._handleChange} type="text" name="nickname" value={this.state.nickname} />
           </div>
-          <div>
-            <label htmlFor="name">Name: </label>
+          <div className="input-field col s8">
             <input onChange={this._handleChange} type="text" name="name" value={this.state.name} />
+            <label htmlFor="name">first name </label>
           </div>
-          <div>
-            <label htmlFor="email">E-mail: </label>
+          <div className="input-field col s8">
             <input onChange={this._handleChange} type="text" name="email" value={this.state.email} />
+            <label htmlFor="email">email </label>
           </div>
-          <div>
-            <label htmlFor="password">Password: </label>
+          <div className="input-field col s8">
             <input onChange={this._handleChange} type="password" name="password" value={this.state.password} />
+            <label htmlFor="password">password  <small>  (8 character minimum)</small></label>
           </div>
-          <div>
-            <label htmlFor="password">Confirm Password: </label>
+          <div className="input-field col s8">
             <input onChange={this._handleChange} type="password" name="password_confirmation" value={this.state.password_confirmation} />
+            <label htmlFor="password">confirm password </label>
           </div>
-         
-         <button>Sign Up</button>
-         <Link to="/signin">Sign In</Link>
+          <br/>
+         <button className="btn waves-effect waves-light light-blue lighten-1 z-depth-1">Sign Up</button>
+          &nbsp;
+          &nbsp;
+         <Link to="/signin" className="btn waves-effect waves-light blue-grey lighten-2 z-depth-1">Sign In</Link>
        </form>
       </div>
+      </div>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>      
+                  <br/>
+                  </div>
     );
   }
 }

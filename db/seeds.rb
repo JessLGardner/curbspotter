@@ -6,9 +6,9 @@ Neighborhood.destroy_all
 
 # neighborhoods
 cabbage = Neighborhood.create({name: 'Cabbagetown', description: "Cabbagetown is a neighborhood on the east side of Atlanta, Georgia, United States, abutting historic Oakland Cemetery. It includes the Cabbagetown District, a historic district listed on the U.S. National Register of Historic Places."})
+kirk = Neighborhood.create({name: 'Kirkwood', description: "Kirkwood is a national historic designated neighborhood on the east side of Atlanta, Georgia, United States. A historic streetcar suburb, its residential development began in the 1870s and an early tour book described it as an area of beautiful suburban villas."})
 o4w = Neighborhood.create({name: 'Old Fourth Ward', description: "The Old Fourth Ward, often abbreviated O4W, is a neighborhood on the east side of Atlanta, Georgia, United States. The neighborhood is best known as the location of the Martin Luther King, Jr. historic site."})
-vahi = Neighborhood.create({name: 'Virginia Highlands', description: "Virginia–Highland is neighborhood of Atlanta, Georgia founded in the early 20th century as a streetcar suburb. The neighborhood is famous for its bungalows and other historic houses from the 1910s to the 1930s, and its eclectic mix of restaurants, bars, and shops."})
-kirk = Neighborhood.create({name: 'Kirkwood', description: "Kirkwood is a national historic designated neighborhood on the east side of Atlanta, Georgia, United States. A historic streetcar suburb, its residential development begun in the 1870s and an early tour book described it as an area of beautiful suburban villas."})
+vahi = Neighborhood.create({name: 'Virginia Highlands', description: "Virginia Highlands is neighborhood of Atlanta, Georgia founded in the early 20th century as a streetcar suburb. The neighborhood is famous for its bungalows and other historic houses from the 1910s to the 1930s, and its eclectic mix of restaurants, bars, and shops."})
 
 # posts
 box = Post.create({title: 'Moving boxes', content: "If you want them snag them. Recycling comes in the morning. Don't contact me just get em if you need them. (Please don't make a mess. The stuff closest to the mailbox is trash but the whole right side is moving boxes.)", image_url: 'https://images.craigslist.org/00M0M_92SB6yxEuch_600x450.jpg', category: 'misc', location: '4817 Haven Lane, Atlanta, GA 30317'})
@@ -26,6 +26,11 @@ cabbage.posts = [
   bball
 ]
 
+kirk.posts = [
+  couch,
+  kennel
+]
+
 o4w.posts = [
   sink,
   cabinet
@@ -36,10 +41,6 @@ vahi.posts = [
   skier
 ]
 
-kirk.posts = [
-  couch,
-  kennel
-]
 
 
 

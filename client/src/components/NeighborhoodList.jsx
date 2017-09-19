@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
 import NeighborhoodCard from './NeighborhoodCard';
 
-// const BodyStyle = styled.div`
-//   margin: 50px;
-// `
+
 class NeighborhoodList extends Component {
 
   constructor(){
@@ -32,13 +29,22 @@ class NeighborhoodList extends Component {
 
   render() {
     return (
-      // <BodyStyle>
       <div className="container">      
         <h5>what's your fav neighborhood to scout treasures?</h5>
         {this.state.neighborhoods.map((neighborhood) => (
           <NeighborhoodCard key={neighborhood.id} neighborhood={neighborhood}/>)
         )}
-      {/* </BodyStyle> */}
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>      
+      <br/>
       </div>
     );
   }

@@ -29,7 +29,6 @@ class GlobalNav extends Component {
   _logOut = async () => {
     console.log("CLICK");
     const response = await axios.delete("/auth/sign_out");
-    //Forces refresh of browser
     window.location.reload();
   };
 
@@ -42,8 +41,8 @@ class GlobalNav extends Component {
           <div className="nav-wrapper grey darken-1">
             <Link to="/neighborhoods" className="brand-logo left">curbspottr</Link>
             <div className="right">
-              <Link to={`/users/${id}`}>{this.state.user.nickname} </Link> |
-              <Link to='/' onClick={this._logOut}> log out</Link>
+              <Link to={`/users/${id}`} className="link-color">hey {this.state.user.nickname}   </Link> |
+              <Link to='/' onClick={this._logOut}>   log out</Link>
             </div>
           </div>
         </nav>

@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom';
+import TimeAgo from 'react-timeago';
 import axios from 'axios';
-import styled from 'styled-components';
 
-const PostStyle = styled.div`
-  margin: 20px;
-  a {
-    text-decoration: none;
-  }
-`
 
 class Post extends Component {
   constructor(){
     super();
     this.state = {
+      errors: '',      
+      settings: false,
       redirect: false,
       neighborhood: {},
       post: [],
@@ -28,6 +24,7 @@ class Post extends Component {
   _fetchPost = async () => {
     const neighborhoodId = this.props.match.params.neighborhoodId;
     const id = this.props.match.params.id;
+    
     const res = await axios.get(`/api/neighborhoods/${neighborhoodId}/posts/${id}`)
     this.setState({
       neighborhood: res.data.neighborhood,
@@ -36,42 +33,83 @@ class Post extends Component {
     })
     // console.log(res.data)
   }
-  g
+  
   _deletePost = async () => {
-    const neighborhoodId = this.props.match.params.neighborhoodId;
-    const id = this.props.match.params.id;
-    const res = await axios.delete(`/api/neighborhoods/${neighborhoodId}/posts/${id}`)
-    const redirect = !this.state.redirect
-    this.setState({ redirect })
+    try {
+      const neighborhoodId = this.props.match.params.neighborhoodId;
+      const id = this.props.match.params.id;
+      const res = await axios.delete(`/api/neighborhoods/${neighborhoodId}/posts/${id}`)
+      const redirect = !this.state.redirect
+      this.setState({ redirect })
+    } catch (err) {
+      this.setState({error: err})
+    }
   }
+
+  _toggleSettings = () => {
+    const settings = !this.state.settings;
+    this.setState({settings});
+  };
 
   render(){
     const neighborhoodId = this.props.match.params.neighborhoodId;
     const id = this.props.match.params.id;
-    // const user = current_user
 
     return (
-      <PostStyle>
-        <h2><Link to={`/neighborhoods/${neighborhoodId}/posts`}>
-          {this.state.neighborhood.name}
-        </Link></h2>
-        <h2>{this.state.post.title}</h2>
-        <h4>category: {this.state.post.category}</h4>
-        <img src={this.state.post.image_url} alt=""/>
-        <p>{this.state.post.content}</p><br/>
-        <p>{this.state.post.location}</p>
-        <p>{this.state.post.created_at}</p>
-
-
-        {this.state.post.user_id == this.state.user.id ? 
-        <div>
-          <Link to={`/neighborhoods/${neighborhoodId}/posts/${id}/edit`}>edit</Link>
-          <button onClick={this._deletePost}>delete</button>
-          {this.state.redirect && (<Redirect to={`/neighborhoods/${neighborhoodId}/posts`}/>)}
+      <div>
+      <div className="container p-container z-depth-1">
+        <div className="post-title">
+          <Link to={`/neighborhoods/${neighborhoodId}/posts`}>
+            <span className="post-crumb link-color">{this.state.neighborhood.name}  </span>
+          </Link>
+          <span className="title-crumb">>  {this.state.post.title}</span>
         </div>
-        :
-        ''}
-      </PostStyle>
+
+        <img className="img" src={this.state.post.image_url} alt=""/>
+        <p className="content">{this.state.post.content}</p>
+          <br/>
+          <br/>
+
+        <div className="set-div">
+          <div>
+            <small><strong>location:</strong> {this.state.post.location}</small><br/>
+            <small><strong>category:</strong> {this.state.post.category}</small><br/>
+            <small><strong>posted:</strong> <TimeAgo date={this.state.post.created_at}/></small>
+          </div>
+
+            {this.state.post.user_id == this.state.user.id ? 
+            <div>
+              <button onClick={this._toggleSettings} className="btn waves-effect waves-light blue-grey lighten-2 z-depth-1 btn-set right">
+                  <i className="material-icons tiny">settings</i>
+                </button>
+                    {!this.state.settings ? ''
+                    :         
+                      <div>
+                        <br/>
+                        <br/>
+                        <Link to={`/neighborhoods/${neighborhoodId}/posts/${id}/edit`}><button className="btn waves-effect waves-light blue-grey lighten-2 z-depth-1 btn-small right">edit</button></Link>
+                        <br/>
+                        <br/>    
+                        <button onClick={this._deletePost} className="btn waves-effect waves-light red lighten-2 z-depth-1 btn-small right">delete</button>
+                          {this.state.redirect && (<Redirect to={`/neighborhoods/${neighborhoodId}/posts`}/>)}
+                      </div>} 
+            </div>
+            :
+            ''}
+        </div>
+      </div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>      
+            <br/>
+        </div>
     );
   }
 }

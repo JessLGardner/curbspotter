@@ -40,13 +40,29 @@ class UserProfile extends Component {
   render() {
     return (
       <div>
-
-        <h3>username: {this.state.user.nickname}</h3>
-        <h3>name: {this.state.user.name}</h3>
-        <h3>email: {this.state.user.email}</h3>
-        <br/>
-        <br/>
-        <a href='/'><button onClick={this._deleteProfile}>DELETE PROFILE</button></a>
+      <div className="container">
+      <div className="container">
+        <div className="u-card z-depth-1">
+          <p><strong>username: </strong>{this.state.user.nickname}</p>
+          <p><strong>name: </strong>{this.state.user.name}</p>
+          <p><strong>email: </strong>{this.state.user.email}</p>
+          <br/>
+          <br/>
+          <a href='/'><button onClick={this._deleteProfile} className="btn waves-effect waves-light red lighten-2 z-depth-1">delete profile</button></a>     
+        </div>
+      </div>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>      
+      <br/>
       </div>
     );
   }

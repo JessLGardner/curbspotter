@@ -7,32 +7,32 @@ class NewPost extends Component {
   constructor(){
     super();
     this.state = {
+      errors: '',      
       redirect: false,
+      uploadStatus: '',      
       post: {
         title: '',
         content: '',
         image_url: '',        
         category: '',
         location: ''
-      }, 
-      uploadStatus: ''
+      }
     }
   }
 
-  componentWillMount(){
-    console.log(process.env)
-  }
-
-  _makePost = async (e) => {
-    e.preventDefault();
-    const post = this.state.post
-    const neighborhoodId = this.props.match.params.neighborhoodId;
-    await axios.post(`/api/neighborhoods/${neighborhoodId}/posts`, post)
+  _newPost = async (e) => {
+    try {
+      e.preventDefault();
+      const post = this.state.post
+      const neighborhoodId = this.props.match.params.neighborhoodId;
+      await axios.post(`/api/neighborhoods/${neighborhoodId}/posts`, post)
     
-    const redirect = !this.state.redirect
-    this.setState({redirect: true})
+      const redirect = !this.state.redirect
+      this.setState({redirect: true})
+    } catch (err) {
+    this.setState({error: err})
     }
-
+  }
 
   _handleChange = (e) => {
     const newState = {...this.state.post}
@@ -41,6 +41,9 @@ class NewPost extends Component {
       post: newState
     })
   }
+
+  //////////////////////// DRAG AND DROP /////////////////////////////////
+  /////////////// Bilal Budhani @ blog.codeinfuse.com ///////////////////
 
   _handleDrop = files => {
     // Push all the axios request promise into a single array
@@ -85,16 +88,18 @@ class NewPost extends Component {
       // ... perform after upload is successful operation
     });
   }
+  //////////////////////// DRAG AND DROP /////////////////////////////////
   
-
   render() {
     const neighborhoodId = this.props.match.params.neighborhoodId;
   
     return (
+      <div>
       <div className="container">
-        <h5 className="form-container">New Post</h5>
+        <h5 className="form-title">New Post</h5>
 
-        <form onSubmit={this._makePost}>
+        <form onSubmit={this._newPost} className="z-depth-1">
+
           <div className="input-field col s8">
             <input onChange={this._handleChange} type="text" name="title" value={this.state.post.title} />
             <label htmlFor="title">title</label>
@@ -121,9 +126,9 @@ class NewPost extends Component {
             </select>
           </div>
             <label htmlFor="category">   choose category</label>
-              <br/>
-              <br/>
-              <br/>
+          <br/>
+          <br/>
+          <br/>
  
           {/* <div className="input-field col s8">
             <input onChange={this._handleChange} type="text" name="image_url" value={this.state.post.image_url} />
@@ -138,21 +143,35 @@ class NewPost extends Component {
                 className='dropzone'>
               <p className="p-form">drag and drop your image or click here to upload</p>
             </Dropzone>
+            <br/>
 
-            <p className="p-form">{this.state.uploadStatus}</p>
+            <span className="p-form">{this.state.uploadStatus}</span>
+            {/* <i className="material-icons tiny">check</i> */}
           </div>
-
+            <br/>
           <div>
-            <button className="btn waves-effect waves-light blue-grey lighten-2">Submit<i className="material-icons md-18 right">send</i></button>
+            <button className="btn waves-effect waves-light blue-grey lighten-2 z-depth-1">Submit<i className="material-icons md-18 right">send</i></button>
           </div>
 
         </form>
 
         {this.state.redirect && (<Redirect to={`/neighborhoods/${neighborhoodId}/posts`}/>)}
       </div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>      
+            <br/>
+            </div>
     );
   }
-
+  
 }
 
 export default NewPost;
