@@ -9,8 +9,8 @@ Have you ever seen a pile of 'junk' on the curb and spotted the perfect chair to
 # Links
 [HEROKU APP](https://curbspottr.herokuapp.com/) |
 [TRELLO](https://trello.com/b/4gLp30QN/wdi-project-4) |
-[ERDs](https://i.imgur.com/JH6q7ls.jpg) |
-[WIREFRAMES](https://i.imgur.com/xdoVSJv.jpg)
+[ERDs](https://i.imgur.com/AxKyLXn.jpg) |
+[WIREFRAMES](https://i.imgur.com/ACM4k7R.jpg)
 
 
 # Technologies Used
@@ -24,8 +24,7 @@ cloudinary<br/>
 axios •
 react-router-dom •
 react-timeago •
-react-dropzone •
-styled components<br/>
+react-dropzone<br/>
 devise •
 devise auth token •
 omniauth •
@@ -40,5 +39,4 @@ comments on posts |
 edit user |
 better user profile |
 more info on neighborhood page |
-add friendly_id |
-lots of styling
+add friendly_id
